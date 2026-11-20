@@ -53,6 +53,7 @@ Example accessory config (needs to be added to the Homebridge `config.json`):
         "country": "PT",
         "snapshotDirectory": "/var/lib/homebridge/eufy-snapshots",
         "intervalMinutes": 10,
+        "cooldownSeconds": 15,
         "diffThreshold": 20,
         "roi": [
           100,

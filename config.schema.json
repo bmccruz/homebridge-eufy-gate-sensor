@@ -43,6 +43,13 @@
         "default": 10,
         "minimum": 1
       },
+      "cooldownSeconds": {
+        "title": "Minimum Cooldown Between Captures (seconds)",
+        "type": "integer",
+        "description": "Minimum wait time in seconds between camera snapshots to prevent spamming",
+        "default": 15,
+        "minimum": 0
+      },
       "diffThreshold": {
         "title": "Difference Threshold (%)",
         "type": "integer",

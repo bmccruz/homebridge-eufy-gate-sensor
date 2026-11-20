@@ -23,16 +23,16 @@ class EufyGateSensorAccessory {
     this.password = config.password;
     this.serialNumber = config.serialNumber;
     this.country = config.country || 'PT';
+    this.storagePath = config.storagePath || api.user.storagePath();
     this.intervalMinutes = config.intervalMinutes || 10;
     this.diffThreshold = config.diffThreshold || 20;
     this.roi = config.roi || new Array(100, 50, 120, 80);
 
-    this.storagePath = api.user.storagePath();
     this.refImagePath = path.join(this.storagePath, `gate_ref_${this.serialNumber}.jpg`);
     this.eufyDataDir = path.join(this.storagePath, `eufy_data_${this.serialNumber}`);
 
-    if (!fs.existsSync(this.eufyDataDir)) {
-      fs.mkdirSync(this.eufyDataDir, { recursive: true });
+    if (!fs.existsSync(this.storagePath)) {
+      fs.mkdirSync(this.storagePath, { recursive: true });
     }
 
     this.Service = api.hap.Service;

@@ -32,6 +32,11 @@
         "type": "string",
         "default": "PT"
       },
+      "snapshotDirectory": {
+        "type": "string",
+        "default": "/var/lib/homebridge/eufy-snapshots",
+        "description": "Directory used to save snapshots"
+      },
       "intervalMinutes": {
         "title": "Check Interval (minutes)",
         "type": "integer",

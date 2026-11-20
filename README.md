@@ -51,6 +51,7 @@ Example accessory config (needs to be added to the Homebridge `config.json`):
         "password": "yourpassword",
         "serialNumber": "T8410PXXXXXXXXXX",
         "country": "PT",
+        "snapshotDirectory": "/var/lib/homebridge/eufy-snapshots",
         "intervalMinutes": 10,
         "diffThreshold": 20,
         "roi": [

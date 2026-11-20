@@ -1,0 +1,65 @@
+{
+  "pluginAlias": "EufyGateSensor",
+  "pluginType": "accessory",
+  "singular": false,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Sensor Name",
+        "type": "string",
+        "default": "Gate",
+        "required": true
+      },
+      "email": {
+        "title": "Eufy Secondary Account Email",
+        "type": "string",
+        "required": true
+      },
+      "password": {
+        "title": "Eufy Account Password",
+        "type": "string",
+        "required": true
+      },
+      "serialNumber": {
+        "title": "Camera Serial Number",
+        "type": "string",
+        "description": "Found in Eufy app under Settings > General > About Device",
+        "required": true
+      },
+      "country": {
+        "title": "Country Code (ISO 3166-1 alpha-2)",
+        "type": "string",
+        "default": "PT"
+      },
+      "intervalMinutes": {
+        "title": "Check Interval (minutes)",
+        "type": "integer",
+        "default": 10,
+        "minimum": 1
+      },
+      "brightnessThreshold": {
+        "title": "Brightness Threshold (0-255)",
+        "type": "integer",
+        "description": "Values below this threshold trigger the OPEN state",
+        "default": 100,
+        "minimum": 0,
+        "maximum": 255
+      },
+      "roi": {
+        "title": "Region of Interest [X, Y, Width, Height]",
+        "type": "array",
+        "description": "Coordinates within a 320x180 scaled image",
+        "default": [
+          100,
+          50,
+          120,
+          80
+        ],
+        "items": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

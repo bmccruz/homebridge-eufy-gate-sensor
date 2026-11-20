@@ -1,0 +1,24 @@
+{
+  "name": "homebridge-eufy-gate-sensor",
+  "version": "1.0.0",
+  "description": "Homebridge contact sensor plugin that detects if a gate/door is open using Eufy camera snapshots",
+  "main": "index.js",
+  "keywords": [
+    "homebridge-plugin",
+    "eufy",
+    "gate",
+    "sensor",
+    "camera"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "homebridge": ">=1.6.0"
+  },
+  "dependencies": {
+    "eufy-security-client": "^3.1.0",
+    "jpeg-js": "^0.4.4"
+  },
+  "optionalDependencies": {
+    "ffmpeg-for-homebridge": "^2.2.2"
+  }
+}

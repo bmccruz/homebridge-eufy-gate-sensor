@@ -142,10 +142,11 @@ class EufyGateSensorAccessory {
   }
 
   calculateImageDifference(img1, img2) {
-    const x0 = this.roi.at(0);
-    const y0 = this.roi.at(1);
-    const width = this.roi.at(2);
-    const height = this.roi.at(3);
+    const roiValues = Object.values(this.roi);
+    const x0 = roiValues[0];
+    const y0 = roiValues[1];
+    const width = roiValues[2];
+    const height = roiValues[3];
 
     let totalDiff = 0;
     let pixelCount = 0;

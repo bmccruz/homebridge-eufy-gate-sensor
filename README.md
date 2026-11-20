@@ -12,7 +12,7 @@ This project is licensed under the ISC License. See [LICENSE](LICENSE) for detai
 
 ## Description
 
-Homebridge plugin that periodically captures a snapshot from your Eufy Security camera and analyzes the brightness of a defined Region of Interest (ROI) to determine whether a gate or garage door is open or closed.
+Homebridge plugin that periodically captures a snapshot from your Eufy Security camera and compares a defined Region of Interest (ROI) against a saved reference image of the closed gate to determine whether a gate or garage door is open or closed.
 
 Because it relies on lightweight snapshot polling via P2P instead of continuous video streaming or RTSP, it keeps native HomeKit Secure Video working on your camera and runs smoothly on low-memory devices like the **Raspberry Pi Zero**.
 
@@ -23,7 +23,8 @@ Because it relies on lightweight snapshot polling via P2P instead of continuous 
 - Exposes a native HomeKit **Contact Sensor** (`Open` / `Closed`) to trigger Apple Home notifications and automations.
 - Works alongside native Apple HomeKit without requiring RTSP to be enabled.
 - Ultra-low CPU and RAM footprint (ideal for Raspberry Pi Zero) by downscaling snapshots before pixel analysis.
-- Customizable check interval, brightness threshold, and Region of Interest (ROI).
+- Customizable check interval (`intervalMinutes`), image difference threshold (`diffThreshold`), and Region of Interest (`roi`).
+- Includes a stateless **Calibrate** switch in Apple Home to update the closed-gate reference snapshot on demand.
 
 ## Prerequisites
 
@@ -51,7 +52,7 @@ Example accessory config (needs to be added to the Homebridge `config.json`):
         "serialNumber": "T8410PXXXXXXXXXX",
         "country": "PT",
         "intervalMinutes": 10,
-        "brightnessThreshold": 100,
+        "diffThreshold": 20,
         "roi": [
           100,
           50,
@@ -71,7 +72,7 @@ Example accessory config (needs to be added to the Homebridge `config.json`):
 - `serialNumber`: Camera serial number (found in the Eufy app under *Settings > General > About Device*).
 - `country`: Two-letter ISO country code (e.g., `PT`, `US`, `GB`).
 - `intervalMinutes`: How often (in minutes) the plugin checks the camera snapshot (default: `10`).
-- `brightnessThreshold`: Average luminance value (`0`–`255`). Values below this threshold set the sensor to **Open** (default: `100`).
+- `diffThreshold`: Visual difference percentage (`0`–`100`) compared to the closed gate reference snapshot. Values above this threshold set the sensor to **Open** (default: `20`).
 - `roi`: Region of Interest `[x, y, width, height]` on a `320x180` scaled image (`/tmp/gate_scaled.jpg`).
 
 ## Contributing

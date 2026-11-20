@@ -38,13 +38,13 @@
         "default": 10,
         "minimum": 1
       },
-      "brightnessThreshold": {
-        "title": "Brightness Threshold (0-255)",
+      "diffThreshold": {
+        "title": "Difference Threshold (%)",
         "type": "integer",
-        "description": "Values below this threshold trigger the OPEN state",
-        "default": 100,
-        "minimum": 0,
-        "maximum": 255
+        "description": "Percentage of visual difference (0-100) compared to the closed gate reference snapshot",
+        "default": 20,
+        "minimum": 1,
+        "maximum": 100
       },
       "roi": {
         "title": "Region of Interest [X, Y, Width, Height]",
